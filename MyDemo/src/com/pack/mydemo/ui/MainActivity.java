@@ -1,5 +1,10 @@
 package com.pack.mydemo.ui;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
@@ -23,7 +28,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
-        mViewPager.setAdapter(new SamplePagerAdapter());
+        mViewPager.setAdapter(new SamplePagerAdapter(0,0,0));
         mSlidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
         mSlidingTabLayout.setCustomTabView(R.layout.custom_tab, R.id.customText);
         mSlidingTabLayout.setViewPager(mViewPager);
@@ -36,17 +41,21 @@ public class MainActivity extends ActionBarActivity {
     
     class SamplePagerAdapter extends PagerAdapter {
     	
-    	private String[] tabName = {"Home","Bookmarks", "Favourites"};
+    	private ArrayList<String> detailArray;
 
+    	public SamplePagerAdapter(int chapterID,int topicID,int subTopicID) {
+			detailArray =  getDetailArray(chapterID, topicID, subTopicID);
+		}
+    	
 		@Override
 		public int getCount() {
 			// TODO Auto-generated method stub
-			return 3;
+			return detailArray.size();
 		}
 		
 		  @Override
 	        public CharSequence getPageTitle(int position) {
-	            return tabName[position];
+	            return detailArray.get(position);
 	        }
 
 		@Override
@@ -55,7 +64,6 @@ public class MainActivity extends ActionBarActivity {
 			return o == view;
 		}
 
-		
 		
 		@Override
 		public Object instantiateItem(ViewGroup container, int position) {
@@ -68,7 +76,7 @@ public class MainActivity extends ActionBarActivity {
 
             // Retrieve a TextView from the inflated View, and update it's text
             TextView title = (TextView) view.findViewById(R.id.item_title);
-            title.setText(String.valueOf(position + 1));
+            title.setText(detailArray.get(position));
 			
 			return view;
 		}
@@ -81,4 +89,56 @@ public class MainActivity extends ActionBarActivity {
 
     	
     }
+    
+    public ArrayList<String> getDetailArray(int chapterID,int topicID,int subTopicID){
+		
+		Resources res = getResources();		
+		TypedArray chapterArray = res.obtainTypedArray(R.array.chapter);				
+		
+		int requiredChapterID = 0;
+		try {
+			requiredChapterID = chapterArray.getResourceId(chapterID, 0);			
+		} catch (ArrayIndexOutOfBoundsException e) {
+			Log.e("Exception", e.getMessage());
+		}		
+		Log.d("ChapterID", ""+requiredChapterID);
+		
+		if(requiredChapterID > 0){		
+		TypedArray topicArray = res.obtainTypedArray(requiredChapterID);	
+		
+		int requiredTopicID =0;
+		try {
+			requiredTopicID = topicArray.getResourceId(topicID, 0);
+		} catch (ArrayIndexOutOfBoundsException e) {
+			// TODO: handle exception
+		}		
+		Log.d("TopicID", ""+requiredTopicID);
+		
+		if(requiredTopicID > 0){		
+		TypedArray subTopicArray = res.obtainTypedArray(requiredTopicID);
+		
+		int requiredSubTopicID=0;		
+		try {
+			requiredSubTopicID =  subTopicArray.getResourceId(subTopicID, 0);
+		} catch (ArrayIndexOutOfBoundsException e) {
+			// TODO: handle exception
+		}
+		Log.d("SubTopicID", ""+requiredSubTopicID);
+		
+		if(requiredSubTopicID > 0){		
+		return new ArrayList<String>(
+				Arrays.asList(res.getStringArray(requiredSubTopicID)));
+		}
+		else
+			return new ArrayList<String>();
+		
+		}
+		else
+			return new ArrayList<String>();
+		
+		}
+		else
+			return new ArrayList<String>();
+	}
+	
 }

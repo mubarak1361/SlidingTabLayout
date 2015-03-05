@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+
 public class PageActivity extends Activity {
 
 	private ViewPager mViewPager;
@@ -29,14 +30,13 @@ public class PageActivity extends Activity {
 				// TODO Auto-generated method stub
 				return 3;
 			}
-			
+		
 
 			@Override
 			public boolean isViewFromObject(View view, Object o) {
 				// TODO Auto-generated method stub
 				return o == view;
 			}
-
 			
 			
 			@Override
@@ -50,7 +50,7 @@ public class PageActivity extends Activity {
 
 	            // Retrieve a TextView from the inflated View, and update it's text
 	            TextView description = (TextView) view.findViewById(R.id.description);
-	            TextView reference = (TextView) view.findViewById(R.id.reference);
+	            //TextView reference = (TextView) view.findViewById(R.id.reference);
 	            description.setText(String.valueOf(position + 1));
 				
 				return view;

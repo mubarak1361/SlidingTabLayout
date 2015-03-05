@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Pager</string>
+    <string name="app_name">Android toolbar center title and custom font</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_page">PageActivity</string>
     <string name="title_activity_text_view_collection">TextViewCollectionActivity</string>
-
-    <string name="text_collection"><![CDATA[<p>Text with markup for <strong>bold</strong>
+    <string name="text_collection">
+<![CDATA[<p>Text with markup for <strong>bold</strong>
 	and <em>italic</em> text.</p>
 	<p>There is also support for a
 	<tt>teletype-style</tt> font.
 	But no use for the <br> <p align="left">code</p>
-	tag!</p> ]]></string>
-
+	tag!</p> ]]>
+    </string>
+<string name="sub_title">Android toolbar center title and custom font Android toolbar center title and custom font</string>
+    
     <string-array name="detail_1">
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>Four</item>
+    </string-array>
+    <string-array name="detail_2">
         <item>hello 1</item>
         <item>hello 2</item>
         <item>hello 3</item>
@@ -21,29 +29,20 @@
         <item>hello 5</item>
         <item>hello 6</item>
     </string-array>
-    
-     <string-array name="detail_2">
-        <item>hello 1</item>
-        <item>hello 2</item>
-        <item>hello 3</item>
-        <item>hello 4</item>
-        <item>hello 5</item>
-        <item>hello 6</item>
-    </string-array>
-    
     <string-array name="sub_topic">
         <item>@array/detail_1</item>
-        <item >@array/detail_2</item>
+        <item>@array/detail_2</item>
     </string-array>
-    
     <string-array name="topic">
         <item>@array/sub_topic</item>
         <item>@array/sub_topic</item>
         <item>@array/sub_topic</item>
     </string-array>
-    
     <string-array name="chapter">
         <item>@array/topic</item>
         <item>@array/topic</item>
     </string-array>
+
+    <string name="title_activity_material_kit">MaterialKitActivity</string>
+
 </resources>

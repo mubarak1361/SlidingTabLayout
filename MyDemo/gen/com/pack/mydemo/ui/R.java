@@ -1632,6 +1632,7 @@ containing a value of this type.
         public static final int abc_textfield_search_default_mtrl_alpha=0x7f020031;
         public static final int abc_textfield_search_material=0x7f020032;
         public static final int ic_launcher=0x7f020033;
+        public static final int toolbar_shadow=0x7f020034;
     }
     public static final class id {
         public static final int action_bar=0x7f050031;
@@ -1647,6 +1648,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f05002e;
         public static final int action_mode_bar_stub=0x7f05002d;
         public static final int action_mode_close_button=0x7f050020;
+        public static final int action_settings=0x7f05004a;
         public static final int activity_chooser_view_content=0x7f050021;
         public static final int always=0x7f05000d;
         public static final int beginning=0x7f050012;
@@ -1670,7 +1672,7 @@ containing a value of this type.
         public static final int icon=0x7f050026;
         public static final int ifRoom=0x7f05000c;
         public static final int image=0x7f050023;
-        public static final int item_title=0x7f050048;
+        public static final int item_title=0x7f050049;
         public static final int listMode=0x7f050002;
         public static final int list_item=0x7f050025;
         public static final int middle=0x7f050013;
@@ -1681,6 +1683,7 @@ containing a value of this type.
         public static final int progress_horizontal=0x7f05001d;
         public static final int radio=0x7f05002b;
         public static final int reference=0x7f050047;
+        public static final int scrollView1=0x7f050048;
         public static final int search_badge=0x7f050035;
         public static final int search_bar=0x7f050034;
         public static final int search_button=0x7f050036;
@@ -1766,6 +1769,9 @@ containing a value of this type.
         public static final int pager_item=0x7f03001d;
         public static final int support_simple_spinner_dropdown_item=0x7f03001e;
     }
+    public static final class menu {
+        public static final int main_menu=0x7f0d0000;
+    }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
@@ -1832,6 +1838,7 @@ containing a value of this type.
         public static final int title_activity_text_view_collection=0x7f0a0013;
     }
     public static final class style {
+        public static final int ActionBarOverflowStyle=0x7f0b00f1;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.

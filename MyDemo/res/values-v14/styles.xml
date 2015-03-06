@@ -12,6 +12,7 @@
     <style name="AppTheme" parent="@style/AppBaseTheme">
         <item name="colorPrimary">#424242</item>
         <item  name="actionBarStyle">@style/MyActionBar</item>
+        <item name="actionOverflowButtonStyle">@style/ActionBarOverflowStyle</item>
     </style>
     
     <style name="MyActionBar" parent="@style/Widget.AppCompat.ActionBar.Solid">
@@ -30,6 +31,10 @@
      <item name="windowActionBarOverlay">true</item>
       <item name="colorPrimary">@android:color/transparent</item>
         <item  name="actionBarStyle">@style/MyActionBar</item>
+</style>
+
+<style name="ActionBarOverflowStyle" parent="@style/Widget.AppCompat.ActionButton.Overflow">
+    <item name="android:src">@android:drawable/ic_menu_more</item>
 </style>
 
 

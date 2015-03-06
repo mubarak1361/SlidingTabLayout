@@ -14,6 +14,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils.TruncateAt;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -45,16 +46,17 @@ public class MainActivity extends ActionBarActivity {
 			getSupportActionBar().setDisplayShowHomeEnabled(true);
 			toolbar.setTitle(getResources().getString(R.string.app_name));
 			toolbar.setSubtitle(getResources().getString(R.string.sub_title));
+			toolbar.setLogo(R.drawable.ic_launcher);
 			
 				MarqueeActionBarTextView();
 				MarqueeActionBarSubTextView();
 			
 			
         }
-       
         mSlidingTabLayout.setBackgroundColor(Color.parseColor("#424242"));
         mSlidingTabLayout.setSelectedIndicatorColors(Color.parseColor("#4caf50"));
         mSlidingTabLayout.setDividerColors(Color.parseColor("#424242"));
+        
         
     }
     
@@ -89,7 +91,6 @@ public class MainActivity extends ActionBarActivity {
 	        subTitleTextView = (TextView) f.get(toolbar);
 	        
 	        subTitleTextView.setEllipsize(TruncateAt.MARQUEE);
-		    subTitleTextView.setMarqueeRepeatLimit(1);
 		    subTitleTextView.setFocusable(true);
 		    subTitleTextView.setFocusableInTouchMode(true);
 		    subTitleTextView.requestFocus();
@@ -106,6 +107,7 @@ public class MainActivity extends ActionBarActivity {
     class SamplePagerAdapter extends PagerAdapter {
     	
     	private ArrayList<String> detailArray;
+    	private String[] title = {"One","Two","Three","Four"};
 
     	public SamplePagerAdapter(int chapterID,int topicID,int subTopicID) {
 			detailArray =  getDetailArray(chapterID, topicID, subTopicID);
@@ -119,7 +121,7 @@ public class MainActivity extends ActionBarActivity {
 		
 		  @Override
 	        public CharSequence getPageTitle(int position) {
-	            return detailArray.get(position);
+	            return title[position];
 	        }
 
 		@Override
@@ -282,6 +284,13 @@ public class MainActivity extends ActionBarActivity {
                 view.setAlpha(0);
             }
         }
+    }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
     }
     
 }

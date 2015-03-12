@@ -258,7 +258,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
 
             if (tabIndex > 0 || positionOffset > 0) {
                 // If we're not at the first child and are mid-scroll, make sure we obey the offset
-                targetScrollX -= mTitleOffset;
+                targetScrollX -= (getWidth()-selectedChild.getWidth())/2;
             }
 
             scrollTo(targetScrollX, 0);
